@@ -1,0 +1,29 @@
+// @Author: chenxuan
+// @Date:   2017-06-02T20:12:45+08:00
+// @Project: 自定义
+// @Filename: base.scss
+// @Last modified by:   chenxuan
+// @Last modified time: 2017-06-04T16:30:35+08:00
+@mixin border-1px($color) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid $color;
+  }
+}
+@mixin border-none() {
+  &::after {
+    display: none;
+  }
+}
+@mixin bg-img($url) {
+  background-image: url($url+'@2x.png');
+  @media(-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3) {
+    background-image: url($url+'@3x.png');
+  }
+}
